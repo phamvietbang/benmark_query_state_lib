@@ -51,7 +51,7 @@ ENV/
 .idea
 .data
 # dependencies
-/node_modules
+node_modules
 /.pnp
 .pnp.js
 
