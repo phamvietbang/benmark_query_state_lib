@@ -77,8 +77,6 @@ class QSLBenmark:
                 num_err += 1
                 print(f"{key} - err")
 
-            print(f"{key} - success")
-
         print(f"err ratio {num_err / self.number_query * 100}")
         end = time.time()
         print(f"finish after {end - start}s")
