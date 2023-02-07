@@ -22,10 +22,9 @@ class W3Benmark(QSLBenmark):
             "time_query": end - start
         }
         print(f"finish after {end - start}s")
-        with open(file_name, "w") as f:
-            f.write(json.dumps(params))
 
     def get_balance(self):
+        print("save result balance crawl")
         err = 0
         start = time.time()
         for i in range(self.number_query):
@@ -36,10 +35,11 @@ class W3Benmark(QSLBenmark):
                 print(e)
                 err += 1
                 pass
-        print("save result balance crawl")
+        
         self.calculate_query(f"w3_get_balance_{self.number_query}.txt", err / self.number_query, start)
 
     def get_block(self):
+        print("save result block crawl")
         err = 0
         start = time.time()
         block = 25417932
@@ -51,10 +51,11 @@ class W3Benmark(QSLBenmark):
                 print(e)
                 err += 1
                 pass
-        print("save result block crawl")
+        
         self.calculate_query(f"w3_get_block_{self.number_query}.txt", err / self.number_query, start)
 
     def get_ctoken_metadata(self):
+        print("save result ctoken crawl")
         contract = self.w3.eth.contract(address=CREAM_ADDRESS, abi=CREAM_LENS_ABI)
         err = 0
         start = time.time()
@@ -65,7 +66,7 @@ class W3Benmark(QSLBenmark):
                 print(f"{i} - err")
                 err += 1
                 pass
-        print("save result ctoken crawl")       
+               
         self.calculate_query(f"w3_get_ctoken_metadata_{self.number_query}.txt", err / self.number_query, start)
 
 
