@@ -31,7 +31,6 @@ class W3Benmark(QSLBenmark):
         for i in range(self.number_query):
             try:
                 balance = self.contract.functions.balanceOf(self.wallet).call(block_identifier=self.block_number)
-                print(f"{i} - success")
             except Exception as e:
                 print(f"{i} - err")
                 print(e)
@@ -47,7 +46,6 @@ class W3Benmark(QSLBenmark):
         for i in range(self.number_query):
             try:
                 block_data = self.w3.eth.get_block(block_identifier=block + i)
-                print(f"{i} - success")
             except Exception as e:
                 print(f"{i} - err")
                 print(e)
@@ -63,7 +61,6 @@ class W3Benmark(QSLBenmark):
         for i in range(self.number_query):
             try:
                 data = contract.functions.cTokenMetadataAll(tokens).call()
-                print(f"{i} - success")
             except Exception as e:
                 print(f"{i} - err")
                 err += 1
